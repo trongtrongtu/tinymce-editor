@@ -1,13 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const editorRef = useRef(null);
+  const [dataConent, setDataConent] = useState('<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><msqrt><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></msqrt></mrow><mn>2</mn></mfrac></mrow></math>');
   const log = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      console.log(editorRef.current?.getContent());
+      setDataConent(editorRef.current?.getContent())
     }
   };
   const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -17,7 +19,7 @@ function App() {
       <Editor
         apiKey="frrix5f6jsh26jzcp3yucjinkqwt7olh66vj7py7el1535zu"
         onInit={(evt, editor) => editorRef.current = editor}
-        initialValue="<p>This is the initial content of the editor.</p>"
+        initialValue='<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><msqrt><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></msqrt></mrow><mn>2</mn></mfrac></mrow></math>'
         init={{
           selector: 'textarea#full-featured-non-premium',
           language: "vi_VN",
@@ -48,10 +50,15 @@ function App() {
           // automatic_uploads: false,
           // images_upload_base_path: '/some/basepath',
           // images_upload_credentials: true,
+          external_plugins: { tiny_mce_wiris: 'https://www.wiris.net/demo/plugins/tiny_mce/plugin.js' },
           plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
           imagetools_cors_hosts: ['picsum.photos'],
           menubar: 'file edit view insert format tools table help',
-          toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+          toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl | tiny_mce_wiris_formulaEditor | tiny_mce_wiris_formulaEditorChemistry',
+          // toolbar: 'tiny_mce_wiris_formulaEditor tiny_mce_wiris_formulaEditorChemistry',
+          htmlAllowedTags: ['.*'],
+          htmlAllowedAttrs: ['.*'],
+          draggable_modal: true,
           toolbar_sticky: true,
           autosave_ask_before_unload: true,
           autosave_interval: '30s',
@@ -107,6 +114,10 @@ function App() {
         }}
       />
       <button onClick={log}>Log editor content</button>
+      <div dangerouslySetInnerHTML={{ __html: dataConent }} />
+      {/* <div style={{ margin: '10px' }}>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mn>1</mn><mo>+</mo><msqrt><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></msqrt></mrow><mn>2</mn></mfrac></mrow></math>
+      </div> */}
     </>
   );
 }

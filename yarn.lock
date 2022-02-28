@@ -2129,6 +2129,28 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
+"@wiris/mathtype-html-integration-devkit@1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@wiris/mathtype-html-integration-devkit/-/mathtype-html-integration-devkit-1.6.1.tgz#e03cd680b71e3399a7e0d817f95c0053d09b5e62"
+  integrity sha512-4LWvlQHq4fXZh8S4ddyfS7JrR4D9ogfPBpQGONXUZLlPZ10ud3i1VrVKrkhoKQjnGNRwtVhnxilN7bahSeRVGA==
+  dependencies:
+    raw-loader "^4.0.2"
+    uuid "^8.3.2"
+
+"@wiris/mathtype-tinymce4@^7.27.1":
+  version "7.27.1"
+  resolved "https://registry.yarnpkg.com/@wiris/mathtype-tinymce4/-/mathtype-tinymce4-7.27.1.tgz#a323cc3a2eafa795d1ee02259b19ef789efc6804"
+  integrity sha512-mpCNFJhVp+vQCXMO54rQlqiLMSypIKU9D0OfBUtwSw9wmjADktLu8SyiLL94WLugbBGP/++CYWaTwqktE/6GnQ==
+  dependencies:
+    "@wiris/mathtype-html-integration-devkit" "1.6.1"
+
+"@wiris/mathtype-tinymce5@^7.27.1":
+  version "7.27.1"
+  resolved "https://registry.yarnpkg.com/@wiris/mathtype-tinymce5/-/mathtype-tinymce5-7.27.1.tgz#0f5ec4b88b95a1d8a9ac3c19f55c8d90a64bbfbe"
+  integrity sha512-oBAmpA1Mhev6vOjkKXWa5w+zsYjma9Wp6spoL+USU5T1Ybtg56MIbXjs/3fJ1d/ixZGQMkNKe+UtOTHZ8YYH8w==
+  dependencies:
+    "@wiris/mathtype-html-integration-devkit" "1.6.1"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
@@ -8965,6 +8987,14 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+raw-loader@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-4.0.2.tgz#1aac6b7d1ad1501e66efdac1522c73e59a584eb6"
+  integrity sha512-ZnScIV3ag9A4wPX/ZayxL/jZH+euYb6FcUinPcgiQW0+UBtEv0O6Q3lGd3cqJ+GHH+rksEv3Pj99oxJ3u3VIKA==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
+
 react-app-polyfill@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz#a0bea50f078b8a082970a9d853dc34b6dcc6a3cf"
@@ -10902,7 +10932,7 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuid@^8.3.0:
+uuid@^8.3.0, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
